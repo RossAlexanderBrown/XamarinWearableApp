@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
-namespace QOTDWearableApp.Models
+namespace QOTDAndroidWearableApp.Models
 {
     public class Quote
     {

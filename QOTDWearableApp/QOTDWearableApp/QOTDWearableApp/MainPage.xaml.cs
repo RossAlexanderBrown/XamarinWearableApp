@@ -19,13 +19,10 @@ namespace QOTDWearableApp
     public partial class MainPage : ContentPage
     {
         readonly HttpClient client = new HttpClient();
-        //const string Url = "https://api.quotable.io/random";
         private ObservableCollection<Quote> quote;
         public MainPage()
         {
             InitializeComponent();
-            QOTDLabel.Text = "QOTD";
-            AuthorLabel.Text = "Author";
             GetQuote();
         }
 
@@ -33,11 +30,10 @@ namespace QOTDWearableApp
         {
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            client.DefaultRequestHeaders.Add("Authorization", $"Token {Environment.GetEnvironmentVariable("QOTD_API_KEY")}");
-            string response = await client.GetStringAsync("http://api.paperquotes.com/apiv1/qod");
-            List <Quote> quotes = JsonConvert.DeserializeObject<List<Quote>>(response);
-            quote = new ObservableCollection<Quote>(quotes);
-            QOTDLabel.Text = quote.First().content;
+            string response = await client.GetStringAsync("https://quotes.rest/qod");
+            APIResponse quotes = JsonConvert.DeserializeObject<APIResponse>(response);
+            quote = new ObservableCollection<Quote>(quotes.contents.quotes);
+            QOTDLabel.Text = quote.First().quote;
             AuthorLabel.Text = quote.First().author;
         }
     }

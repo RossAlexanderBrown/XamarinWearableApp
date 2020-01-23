@@ -1,15 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="QOTDWearableApp.MainPage">
+             x:Class="QOTDWearableApp.MainPage" 
+             BackgroundColor="#363F40">
     <ContentPage.Content>
         <StackLayout>
-            <Label x:Name="QOTDLabel" Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Label x:Name="AuthorLabel" Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="QOTDLabel" 
+                 VerticalOptions="CenterAndExpand" 
+                 HorizontalOptions="CenterAndExpand" 
+                 FontSize="16"
+                 TextColor="#C3E4E6"/>
+            <Label x:Name="AuthorLabel" 
+                 VerticalOptions="CenterAndExpand" 
+                 HorizontalOptions="CenterAndExpand" 
+                 FontSize="18"
+                 TextColor="#C3E4E6"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
